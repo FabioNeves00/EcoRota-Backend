@@ -11,7 +11,7 @@ export type PackageType = {
   orders: OrderType[];
   price: number;
   durationInHours: number;
-  image: string;
+  image: string[];
   description: string;
   discount: number;
   hasCoticoPartnership: boolean;

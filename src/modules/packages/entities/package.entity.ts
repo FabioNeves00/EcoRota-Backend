@@ -1,5 +1,5 @@
-import { PackageType } from "@app/types";
-import { Order } from "src/modules/orders/entities/order.entity";
+import type { PackageType } from "@app/types";
+import { Order } from "../../orders/entities/order.entity";
 import { Column, CreateDateColumn, Entity, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 
 @Entity({ name: "packages" })
@@ -22,8 +22,8 @@ export class Package implements PackageType {
   @Column('int')
   durationInHours: number;
 
-  @Column('character varying')
-  image: string;
+  @Column('character varying', { array: true })
+  image: string[];
 
   @Column('character varying')
   description: string;

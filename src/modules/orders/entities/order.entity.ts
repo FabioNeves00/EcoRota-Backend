@@ -1,5 +1,5 @@
-import { OrderType, PaymentMethodsType } from "@app/types";
-import { Package } from "src/modules/packages/entities/package.entity";
+import type { OrderType, PaymentMethodsType } from "@app/types";
+import { Package } from "../../packages/entities/package.entity";
 import { Column, CreateDateColumn, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity({ name: "orders" })
