@@ -13,10 +13,9 @@ async function bootstrap() {
   app.enableCors();
   app.use(cookieParser());
   const config = new DocumentBuilder()
-    .setTitle('Backend Computação Amostra')
+    .setTitle('Backend EcoRota')
     .setDescription('API Routes and data')
     .setVersion('1.0')
-    .addCookieAuth('session_token')
     .build();
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('docs', app, document);

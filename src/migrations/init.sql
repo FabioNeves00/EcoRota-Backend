@@ -1,3 +1,3 @@
-CREATE DATABASE mockdatabase;
-CREATE USER mockdatabase WITH PASSWORD 'mockdatabase';
-GRANT ALL PRIVILEGES ON DATABASE mockdatabase TO mockdatabase;
+CREATE DATABASE ecorota;
+CREATE USER ecorota WITH PASSWORD = 'ecorota';
+GRANT ALL PRIVILEGES ON DATABASE :: ecorota TO ecorota;
