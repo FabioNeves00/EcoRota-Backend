@@ -10,7 +10,7 @@ export class Package implements PackageType {
   @Column('character varying')
   title: string;
 
-  @Column('datetime')
+  @Column('date')
   dueDate: Date;
 
   @OneToMany(() => Order, (_order) => _order.package)
