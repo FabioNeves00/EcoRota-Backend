@@ -1,7 +1,6 @@
-import { PaymentMethodsType } from './../../../@types/index.d';
+import { IsBoolean, IsDecimal, IsEmail, IsIn, IsNotEmpty, IsNumber, IsOptional, IsString, IsUUID, Min } from "class-validator";
 import { Package } from "src/modules/packages/entities/package.entity";
 import { Order } from "../entities/order.entity";
-import { IsBoolean, IsDecimal, IsEmail, IsIn, IsNotEmpty, IsNumber, IsOptional, IsString, IsUUID, Min } from "class-validator";
 
 export class CreateOrderDto {
   @IsUUID()

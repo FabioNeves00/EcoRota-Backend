@@ -1,4 +1,4 @@
-import { IsBoolean, IsDate, IsDecimal, IsNotEmpty, IsNumber, IsOptional, IsString, Max, Min } from "class-validator";
+import { IsBoolean, IsDate, IsDecimal, IsNotEmpty, IsNumber, IsOptional, IsString, Min } from "class-validator";
 
 export class CreatePackageDto {
   @IsString()
