@@ -1,8 +1,9 @@
+import { OrderType, PaymentMethodsType } from "@app/types";
 import { Package } from "src/modules/packages/entities/package.entity";
 import { Column, CreateDateColumn, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity({ name: "orders" })
-export class Order {
+export class Order implements OrderType {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
@@ -22,9 +23,9 @@ export class Order {
   quantity: number
 
   @Column({ enum: ["Credit card", "Debit card", "Pix", "Bank Payment Slip"] })
-  payment_method: "Credit card" | "Debit card" | "Pix" | "Bank Payment Slip"; // Credito, debito, pix e boleto
+  paymentMethod: PaymentMethodsType; // Credito, debito, pix e boleto
 
-  @Column('boolean')
+  @Column('boolean', { default: false })
   hasDiscount: boolean;
 
   @CreateDateColumn()

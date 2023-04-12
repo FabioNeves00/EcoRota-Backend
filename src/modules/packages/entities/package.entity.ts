@@ -1,8 +1,9 @@
+import { PackageType } from "@app/types";
 import { Order } from "src/modules/orders/entities/order.entity";
 import { Column, CreateDateColumn, Entity, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 
 @Entity({ name: "packages" })
-export class Package {
+export class Package implements PackageType {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
@@ -30,13 +31,13 @@ export class Package {
   @Column('float')
   discount: number;
 
-  @Column()
+  @Column({ default: false })
   hasCoticoPartnership: boolean;
 
-  @Column()
+  @Column({ default: false })
   hasRestaurantsIncluded: boolean;
 
-  @Column()
+  @Column({ default: false })
   hasTransportIncluded: boolean;
 
   @CreateDateColumn()
