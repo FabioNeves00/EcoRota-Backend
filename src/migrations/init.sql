@@ -1,3 +1,0 @@
-CREATE DATABASE ecorota;
-CREATE USER ecorota WITH PASSWORD = 'ecorota';
-GRANT ALL PRIVILEGES ON DATABASE :: ecorota TO ecorota;
