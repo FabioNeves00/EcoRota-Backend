@@ -6,7 +6,7 @@ import { ApiProperty, ApiPropertyOptional } from "@nestjs/swagger";
 export class CreateOrderDto {
   @IsUUID()
   @ApiProperty({ type: "UUID" })
-  package: Package["id"];
+  package: Package;
   
   @IsString()
   @IsNotEmpty()
