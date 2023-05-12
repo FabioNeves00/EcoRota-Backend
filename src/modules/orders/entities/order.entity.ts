@@ -1,6 +1,6 @@
 import type { OrderType, PaymentMethodsType } from "@app/types";
-import { Package } from "../../packages/entities/package.entity";
 import { Column, CreateDateColumn, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Package } from "../../packages/entities/package.entity";
 
 @Entity({ name: "orders" })
 export class Order implements OrderType {

@@ -1,12 +1,10 @@
-import { IsBoolean, IsDecimal, IsEmail, IsIn, IsNotEmpty, IsNumber, IsOptional, IsString, IsUUID, Min } from "class-validator";
-import { Package } from "../../packages/entities/package.entity";
-import { Order } from "../entities/order.entity";
-import { ApiProperty, ApiPropertyOptional } from "@nestjs/swagger";
+import { ApiProperty } from "@nestjs/swagger";
+import { IsEmail, IsNotEmpty, IsString } from "class-validator";
 
 export class CreateOrderDto {
-  @IsUUID()
-  @ApiProperty({ type: "UUID" })
-  package: Package;
+  // @IsUUID()
+  // @ApiProperty({ type: "UUID" })
+  // package: Package;
   
   @IsString()
   @IsNotEmpty()
@@ -17,21 +15,21 @@ export class CreateOrderDto {
   @ApiProperty()
   email: string;
 
-  @IsDecimal()
-  @ApiProperty()
-  price: number;
+  // @IsDecimal()
+  // @ApiProperty()
+  // price: number;
 
-  @IsNumber()
-  @Min(1)
-  @ApiProperty()
-  quantity: number;
+  // @IsNumber()
+  // @Min(1)
+  // @ApiProperty()
+  // quantity: number;
 
-  @IsIn(["Credit card", "Debit card", "Pix", "Bank Payment Slip"])
-  @ApiProperty({ enum: ["Credit card", "Debit card", "Pix", "Bank Payment Slip"] })
-  paymentMethod: Order["paymentMethod"];
+  // @IsIn(["Credit card", "Debit card", "Pix", "Bank Payment Slip"])
+  // @ApiProperty({ enum: ["Credit card", "Debit card", "Pix", "Bank Payment Slip"] })
+  // paymentMethod: Order["paymentMethod"];
 
-  @IsOptional()
-  @IsBoolean()
-  @ApiPropertyOptional({ default: false })
-  hasDiscount?: boolean;
+  // @IsOptional()
+  // @IsBoolean()
+  // @ApiPropertyOptional({ default: false })
+  // hasDiscount?: boolean;
 }

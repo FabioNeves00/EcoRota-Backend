@@ -1,6 +1,6 @@
 import type { PackageType } from "@app/types";
-import { Order } from "../../orders/entities/order.entity";
 import { Column, CreateDateColumn, Entity, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { Order } from "../../orders/entities/order.entity";
 
 @Entity({ name: "packages" })
 export class Package implements PackageType {

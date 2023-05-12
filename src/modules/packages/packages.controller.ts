@@ -1,7 +1,7 @@
-import { Body, Controller, Delete, Get, Param, Patch, Post } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common';
+import { ApiTags } from '@nestjs/swagger';
 import { CreatePackageDto } from './dto/create-package.dto';
 import { PackagesService } from './packages.service';
-import { ApiTags } from '@nestjs/swagger';
 
 @ApiTags('Packages')
 @Controller('packages')

@@ -1,11 +1,13 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { MailModule } from '../../services/mail/mail.module';
+import { QrCodeModule } from '../../services/qrcode/qrcode.module';
 import { Order } from './entities/order.entity';
 import { OrdersController } from './orders.controller';
 import { OrdersService } from './orders.service';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([Order])],
+  imports: [TypeOrmModule.forFeature([Order]), QrCodeModule, MailModule],
   controllers: [OrdersController],
   providers: [OrdersService]
 })

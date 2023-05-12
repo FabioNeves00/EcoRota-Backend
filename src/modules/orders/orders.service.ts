@@ -1,17 +1,24 @@
 import { Injectable } from '@nestjs/common';
-import { CreateOrderDto } from './dto/create-order.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
+import { MailService } from '../../services/mail/mail.service';
+import { QrCodeService } from '../../services/qrcode/qrcode.service';
+import { CreateOrderDto } from './dto/create-order.dto';
 import { Order } from './entities/order.entity';
 
 @Injectable()
 export class OrdersService {
   constructor(
     @InjectRepository(Order)
-    private readonly orderRepository: Repository<Order>
+    private readonly orderRepository: Repository<Order>,
+    private mailService: MailService,
+    private qrcodeService: QrCodeService,
   ){}
-  create(createOrderDto: CreateOrderDto) {
-    return this.orderRepository.insert(createOrderDto);
+  async create(createOrderDto: CreateOrderDto) {
+    const ticket = await this.qrcodeService.generateQrCode("https://ecorota.com/")
+    await this.mailService.sendTicket(ticket, createOrderDto.email, createOrderDto.name)
+    return 200;
+    // return this.orderRepository.insert(createOrderDto);
   }
 
   findAll() {

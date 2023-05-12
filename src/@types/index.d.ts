@@ -29,7 +29,7 @@ export type OrderType = {
   hasDiscount: boolean;
 } & Omit<BaseEntityType, 'updatedAt'>
 
-export type TQrcodeInfo = {
+export type QrcodeInfoType = {
   
 }
 

@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common';
-import { CreatePackageDto } from './dto/create-package.dto';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Package } from './entities/package.entity';
 import { Repository } from 'typeorm';
+import { CreatePackageDto } from './dto/create-package.dto';
+import { Package } from './entities/package.entity';
 
 @Injectable()
 export class PackagesService {

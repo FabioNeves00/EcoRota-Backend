@@ -1,3 +1,5 @@
+import { HandlebarsAdapter } from '@nestjs-modules/mailer/dist/adapters/handlebars.adapter';
+import { MailerAsyncOptions } from '@nestjs-modules/mailer/dist/interfaces/mailer-async-options.interface';
 import { HttpModuleOptions } from '@nestjs/axios';
 import { ThrottlerAsyncOptions } from '@nestjs/throttler';
 import { TypeOrmModuleAsyncOptions } from '@nestjs/typeorm';
@@ -71,6 +73,31 @@ export class ConfigurationService {
     return {
       timeout: 5000,
       maxRedirects: 5,
+    };
+  }
+
+  public getMailerConfig(): MailerAsyncOptions {
+    return {
+      useFactory: () => ({
+        transport: {
+          service: this.getValue('MAILER_HOST'),
+          secure: true,
+          auth: {
+            user: this.getValue('MAILER_USER'),
+            pass: this.getValue('MAILER_PASSWORD'),
+          },
+        },
+        defaults: {
+          from: 'EcoRota <contato.ecorota@gmail.com>',
+        },
+        template: {
+          dir: join(process.cwd(), 'src', 'services', 'mail', 'templates'),
+          adapter: new HandlebarsAdapter(),
+          options: {
+            strict: true,
+          },
+        },
+      }),
     };
   }
 }
