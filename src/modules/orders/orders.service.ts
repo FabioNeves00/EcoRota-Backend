@@ -15,10 +15,9 @@ export class OrdersService {
     private qrcodeService: QrCodeService,
   ){}
   async create(createOrderDto: CreateOrderDto) {
-    const ticket = await this.qrcodeService.generateQrCode("https://ecorota.com/")
+    const ticket = await this.qrcodeService.generateQrCode("https://www.youtube.com/watch?v=dQw4w9WgXcQ")
     await this.mailService.sendTicket(ticket, createOrderDto.email, createOrderDto.name)
-    return 200;
-    // return this.orderRepository.insert(createOrderDto);
+    return this.orderRepository.insert(createOrderDto);
   }
 
   findAll() {
