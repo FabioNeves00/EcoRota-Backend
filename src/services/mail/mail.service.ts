@@ -8,7 +8,7 @@ export class MailService {
   constructor(private mailerService: MailerService) {}
 
   async sendTicket(ticket: any, ticketDto: TicketDto) {
-    this.mailerService.sendMail({
+    await this.mailerService.sendMail({
       subject: "Ingresso para a experiência EcoRota",
       to: ticketDto.email,
       context: {
