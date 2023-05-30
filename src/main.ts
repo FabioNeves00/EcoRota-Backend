@@ -7,12 +7,8 @@ import { configurationService } from './config/config.service';
 const PORT = configurationService.getValue('PORT');
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
+  const app = await NestFactory.create(AppModule, { cors: { origin: '*', methods: "GET,POST,PUT,DELETE,PATCH", preflightContinue: true } });
   app.useGlobalPipes(new ValidationPipe());
-  app.enableCors({
-    origin: ['https://www.ecorota.com/', 'http://localhost:3000', 'https://localhost:3000', 'http://localhost:5000', 'https://localhost:5000'],
-    methods: ['GET', 'POST', 'PUT', 'PATCH']
-  });
   const config = new DocumentBuilder()
     .setTitle('Backend EcoRota')
     .setDescription('API Routes and data')
