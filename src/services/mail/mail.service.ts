@@ -23,11 +23,11 @@ export class MailService {
         cid: 'ticket'
       },{
         filename: 'banner.png',
-        path: 'src/assets/banner_obrigado.jpeg',
+        path: '../../assets/banner_obrigado.jpeg',
         cid: 'banner'
       },{
         filename: 'logo.png',
-        path: 'src/assets/logomarca_ecorota.jpeg',
+        path: '../../assets/logomarca_ecorota.jpeg',
         cid: 'logo'
       },],
       attachDataUrls: true,
