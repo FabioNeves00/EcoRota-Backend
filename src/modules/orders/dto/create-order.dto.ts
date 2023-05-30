@@ -4,7 +4,7 @@ import { Package } from "../../packages/entities/package.entity";
 import { Order } from "../entities/order.entity";
 
 export class CreateOrderDto {
-  @IsUUID()
+  // @IsUUID()
   @ApiProperty({ type: "UUID" })
   package: Package;
   
@@ -17,7 +17,7 @@ export class CreateOrderDto {
   @ApiProperty()
   email: string;
 
-  @IsDecimal()
+  @IsNumber()
   @ApiProperty()
   price: number;
 

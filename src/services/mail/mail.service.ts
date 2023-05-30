@@ -1,22 +1,35 @@
 import { MailerService } from '@nestjs-modules/mailer';
 import { Injectable } from '@nestjs/common';
+import { TicketDto } from './dto/ticket.dto';
 
 
 @Injectable()
 export class MailService {
   constructor(private mailerService: MailerService) {}
 
-  async sendTicket(ticket: any, userEmail: string, userName: string) {
+  async sendTicket(ticket: any, ticketDto: TicketDto) {
     this.mailerService.sendMail({
       subject: "Ingresso para a experiência EcoRota",
-      to: userEmail,
+      to: ticketDto.email,
       context: {
-        name: userName
+        name: ticketDto.name,
+        package: ticketDto.package,
+        quantity: ticketDto.quantity,
+        price: ticketDto.price
       },
       attachments: [{
         filename: 'ticket.png',
         path: ticket,
-      }],
+        cid: 'ticket'
+      },{
+        filename: 'banner.png',
+        path: 'src/assets/banner_obrigado.jpeg',
+        cid: 'banner'
+      },{
+        filename: 'logo.png',
+        path: 'src/assets/logomarca_ecorota.jpeg',
+        cid: 'logo'
+      },],
       attachDataUrls: true,
       template: 'ticket.hbs'
     })
