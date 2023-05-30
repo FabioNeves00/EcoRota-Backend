@@ -11,6 +11,7 @@ async function bootstrap() {
   app.useGlobalPipes(new ValidationPipe());
   app.enableCors({
     origin: ['https://www.ecorota.com/', 'http://localhost:3000', 'https://localhost:3000', 'http://localhost:5000', 'https://localhost:5000'],
+    methods: ['GET', 'POST', 'PUT', 'PATCH']
   });
   const config = new DocumentBuilder()
     .setTitle('Backend EcoRota')
