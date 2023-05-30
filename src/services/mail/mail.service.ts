@@ -22,12 +22,12 @@ export class MailService {
         path: ticket,
         cid: 'ticket'
       },{
-        filename: 'banner.png',
-        path: '../../assets/banner_obrigado.jpeg',
+        filename: 'banner.jpeg',
+        path: `${process.cwd()}/src/assets/banner_obrigado.jpeg`,
         cid: 'banner'
       },{
-        filename: 'logo.png',
-        path: '../../assets/logomarca_ecorota.jpeg',
+        filename: 'logo.jpeg',
+        path: `${process.cwd()}/src/assets/logomarca_ecorota.jpeg`,
         cid: 'logo'
       },],
       attachDataUrls: true,
