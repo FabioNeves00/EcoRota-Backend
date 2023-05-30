@@ -7,10 +7,19 @@ import { configurationService } from './config/config.service';
 const PORT = configurationService.getValue('PORT');
 const logger = new Logger('CORS')
 async function bootstrap() {
+  var whitelist = ['https://ecorota.com', 'https://ecorota.com/orders','http://localhost:3000', 'http://localhost:5000', undefined, "undefined"];
   const app = await NestFactory.create(AppModule, {
     cors: {
       allowedHeaders: ['content-type'],
-      origin: 'https://ecorota.com',
+      origin: function (origin, callback) {
+        if (whitelist.indexOf(origin) !== -1) {
+          logger.log('allowed cors for:', origin);
+          callback(null, true);
+        } else {
+          logger.log('blocked cors for:', origin);
+          callback(new Error(`Not allowed by CORS ${origin}`));
+        }
+      },
       methods: 'GET,POST,PUT,DELETE,PATCH',
     },
   });
