@@ -12,13 +12,7 @@ async function bootstrap() {
     cors: {
       allowedHeaders: ['content-type'],
       origin: function (origin, callback) {
-        if (whitelist.indexOf(origin) !== -1) {
-          logger.log('allowed cors for:', origin);
           callback(null, true);
-        } else {
-          logger.log('blocked cors for:', origin);
-          callback(new Error(`Not allowed by CORS ${origin}`));
-        }
       },
       methods: 'GET,POST,PUT,DELETE,PATCH',
     },
