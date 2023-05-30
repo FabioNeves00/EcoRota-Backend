@@ -1,4 +1,3 @@
-import { configurationService } from '@app/config';
 import { MailerModule } from '@nestjs-modules/mailer';
 import { HttpModule } from '@nestjs/axios';
 import { Module } from '@nestjs/common';
@@ -9,6 +8,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { OrdersModule } from './modules/orders/orders.module';
 import { PackagesModule } from './modules/packages/packages.module';
+import { configurationService } from './config';
 
 @Module({
   imports: [
