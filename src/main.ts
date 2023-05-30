@@ -10,7 +10,7 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   app.useGlobalPipes(new ValidationPipe());
   app.enableCors({
-    origin: '*',
+    origin: ['https://www.ecorota.com/', 'http://localhost:3000', 'https://localhost:3000', 'http://localhost:5000', 'http://localhost:5000'],
   });
   const config = new DocumentBuilder()
     .setTitle('Backend EcoRota')
