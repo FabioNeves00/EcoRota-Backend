@@ -4,9 +4,9 @@ import { Package } from "../../packages/entities/package.entity";
 import { Order } from "../entities/order.entity";
 
 export class CreateOrderDto {
-  // @IsUUID()
-  @ApiProperty({ type: "UUID" })
-  package: Package;
+  @IsString()
+  @ApiProperty()
+  package: string;
   
   @IsString()
   @IsNotEmpty()
