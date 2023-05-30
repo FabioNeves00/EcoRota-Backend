@@ -7,7 +7,7 @@ import { configurationService } from './config/config.service';
 const PORT = configurationService.getValue('PORT');
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule, { cors: { origin: '*', methods: "GET,POST,PUT,DELETE,PATCH", preflightContinue: true } });
+  const app = await NestFactory.create(AppModule, { cors: { origin: '*', methods: "GET,POST,PUT,DELETE,PATCH", preflightContinue: true, credentials: true } });
   app.useGlobalPipes(new ValidationPipe());
   const config = new DocumentBuilder()
     .setTitle('Backend EcoRota')
