@@ -16,7 +16,7 @@ async function bootstrap() {
           callback(null, true);
         } else {
           logger.log('blocked cors for:', origin);
-          callback(new Error('Not allowed by CORS'));
+          callback(new Error(`Not allowed by CORS ${origin}`));
         }
       },
       methods: 'GET,POST,PUT,DELETE,PATCH',
