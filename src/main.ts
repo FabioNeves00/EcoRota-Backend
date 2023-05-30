@@ -10,7 +10,7 @@ async function bootstrap() {
   var whitelist = ['https://ecorota.com', 'http://localhost:3000', 'http://localhost:5000', undefined, "undefined"];
   const app = await NestFactory.create(AppModule, {
     cors: {
-      allowedHeaders: '*',
+      allowedHeaders: ['content-type'],
       origin: function (origin, callback) {
         if (whitelist.indexOf(origin) !== -1) {
           logger.log('allowed cors for:', origin);
@@ -21,7 +21,6 @@ async function bootstrap() {
         }
       },
       methods: 'GET,POST,PUT,DELETE,PATCH',
-      credentials: true,
     },
   });
   app.useGlobalPipes(new ValidationPipe());
