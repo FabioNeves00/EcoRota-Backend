@@ -7,7 +7,7 @@ import { configurationService } from './config/config.service';
 const PORT = configurationService.getValue('PORT');
 const logger = new Logger('CORS')
 async function bootstrap() {
-  var whitelist = ['https://ecorota.com', 'http://localhost:3000', 'http://localhost:5000', undefined];
+  var whitelist = ['https://ecorota.com', 'http://localhost:3000', 'http://localhost:5000'];
   const app = await NestFactory.create(AppModule, {
     cors: {
       origin: function (origin, callback) {
